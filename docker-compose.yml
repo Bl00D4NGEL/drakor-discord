@@ -5,7 +5,7 @@ services:
     expose:
       - '9000'
     volumes:
-      - ./.docker/php/logs:/var/log
+      - ./.docker/php/logs:/var/log/php
       - ./app:/var/www
     environment:
       PHP_XDEBUG_ENABLED: 1
