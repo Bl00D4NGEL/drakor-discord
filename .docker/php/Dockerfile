@@ -37,4 +37,9 @@ RUN docker-php-ext-enable \
     intl \
     rdkafka
 
+RUN echo 'xdebug.mode=debug' >> /usr/local/etc/php/php.ini
+RUN echo 'xdebug.start_with_request=yes' >> /usr/local/etc/php/php.ini
+RUN echo 'xdebug.discover_client_host=true' >> /usr/local/etc/php/php.ini
+RUN echo 'xdebug.client_host=host.docker.internal' >> /usr/local/etc/php/php.ini
+
 WORKDIR /var/www

@@ -3,3 +3,4 @@
 .docker/mariadb
 .docker/*/logs
 !app/index.php
+zk-single-kafka-single/

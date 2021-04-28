@@ -9,8 +9,6 @@ services:
       - ./app:/var/www
     environment:
       PHP_XDEBUG_ENABLED: 1
-      XDEBUG_CONFIG: remote_host=192.168.178.46
-    user: "${UID}:${GID}"
 
   web:
     image: nginx:1.19-alpine
