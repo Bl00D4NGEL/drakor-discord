@@ -75,6 +75,19 @@ final class ResultAnalyserTest extends TestCase
         $this->assertSame([['Double Experience' => 159]], $result->buffs);
     }
 
+    public function testResultParsingNothing(): void
+    {
+        $fixture = file_get_contents(__DIR__ . '/Fixtures/nothing.html');
+        $result = $this->out->parseResult($fixture);
+        $this->assertSame(38, $result->gainedExperience);
+        $this->assertSame('17:22:48', $result->time);
+        $this->assertSame(0, $result->materialId);
+        $this->assertSame('', $result->materialRarity);
+        $this->assertSame('', $result->materialName);
+        $this->assertSame(0, $result->amount);
+        $this->assertSame([], $result->buffs);
+    }
+
     public function testFoodParsing(): void
     {
         $fixture = file_get_contents(__DIR__ . '/Fixtures/food.html');

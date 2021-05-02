@@ -39,7 +39,6 @@ final class StartActionCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        print_r($input->getArguments());
         $command = new ExecuteAction(
             (int)$input->getArgument('locationId'),
             $input->getArgument('locationChecksum'),

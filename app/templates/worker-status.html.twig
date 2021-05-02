@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Drakor worker status{% endblock %}
+
+{% block content %}
+    {% if workers %}
+        {% for worker in workers %}
+            <p>{{ worker.action }} in location {{ worker.locationId }} (Checksum: {{ worker.locationChecksum }}).</p>
+            <p>Created at: {{ worker.creationTime.format('Y-m-d H:i:s') }} UTC</p>
+        {% endfor %}
+    {% else %}
+        Currently no workers active
+    {% endif %}
+{% endblock %}

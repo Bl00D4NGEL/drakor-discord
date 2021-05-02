@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <style>
+        th {
+            width: 150px;
+        }
+
+        .common {
+            color: grey;
+        }
+
+        .superior {
+            color: green;
+        }
+
+        .rare {
+            color: blue;
+        }
+
+        .epic {
+            color: purple;
+        }
+
+        .legendary {
+            color: orange;
+        }
+    </style>
+{% endblock %}
+
+{% block title %} Drop overview{% endblock %}
+
+{% block content %}
+    {% for result in results %}
+        <p>
+            [{{ result.time }}] =>
+            {% if result.amount == 0 %}
+                Nothing
+            {% else %}
+                <span class="{{ result.materialRarity }}">{{ result.materialName }}</span>
+                x{{ result.amount }}
+            {% endif %}
+            +{{ result.gainedExperience }} EXP
+        </p>
+    {% endfor %}
+{% endblock %}

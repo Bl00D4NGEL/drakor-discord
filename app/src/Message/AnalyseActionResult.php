@@ -7,18 +7,18 @@ namespace App\Message;
 
 final class AnalyseActionResult
 {
-    private string $actionResult;
+    private int $logEntryId;
     private ExecuteAction $initialAction;
 
-    public function __construct(ExecuteAction $initialAction, string $actionResult)
+    public function __construct(ExecuteAction $initialAction, int $logEntryId)
     {
-        $this->actionResult = $actionResult;
+        $this->logEntryId = $logEntryId;
         $this->initialAction = $initialAction;
     }
 
-    public function actionResult(): string
+    public function logEntryId(): int
     {
-        return $this->actionResult;
+        return $this->logEntryId;
     }
 
     public function initialAction(): ExecuteAction

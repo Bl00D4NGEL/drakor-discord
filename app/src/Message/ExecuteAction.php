@@ -2,18 +2,20 @@
 
 declare(strict_types=1);
 
-
 namespace App\Message;
 
+use DateTimeImmutable;
+use DateTimeInterface;
 
 final class ExecuteAction
 {
-    private string $phpSessionId;
-    private int $locationId;
-    private string $locationChecksum;
-    private string $action;
-    private int $rangeFrom;
-    private int $rangeTo;
+    public string $phpSessionId;
+    public int $locationId;
+    public string $locationChecksum;
+    public string $action;
+    public int $rangeFrom;
+    public int $rangeTo;
+    public DateTimeInterface $creationTime;
 
     public function __construct(int $locationId, string $locationChecksum, string $action, int $rangeFrom, int $rangeTo, string $phpSessionId)
     {
@@ -23,37 +25,6 @@ final class ExecuteAction
         $this->rangeFrom = $rangeFrom;
         $this->rangeTo = $rangeTo;
         $this->phpSessionId = $phpSessionId;
+        $this->creationTime = new DateTimeImmutable();
     }
-
-    public function phpSessionId(): string
-    {
-        return $this->phpSessionId;
-    }
-
-    public function locationId(): int
-    {
-        return $this->locationId;
-    }
-
-    public function locationChecksum(): string
-    {
-        return $this->locationChecksum;
-    }
-
-    public function action(): string
-    {
-        return $this->action;
-    }
-
-    public function rangeFrom(): int
-    {
-        return $this->rangeFrom;
-    }
-
-    public function rangeTo(): int
-    {
-        return $this->rangeTo;
-    }
-
-
 }

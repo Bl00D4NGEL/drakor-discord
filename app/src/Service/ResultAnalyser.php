@@ -27,7 +27,7 @@ final class ResultAnalyser implements LoggerAwareInterface
         if (preg_match('/([0-9,]+) EXP/', $input, $expMatch)) {
             $result->gainedExperience = (int)str_replace(',', '', $expMatch[1]);
         }
-        if (preg_match('/<span class="hourMin xsmall">(.*?)<\/span>/', $input, $timeMatch)) {
+        if (preg_match('/<span class="hourMin xsmall">(\d{1,2}:\d{1,2}:\d{1,2}).*?<\/span>/', $input, $timeMatch)) {
             $result->time = $timeMatch[1];
         }
         // Pattern is "Created ..." instead of "You found ..."
