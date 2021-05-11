@@ -9,7 +9,6 @@ use DateTimeInterface;
 
 final class ExecuteAction
 {
-    public string $phpSessionId;
     public int $locationId;
     public string $locationChecksum;
     public string $action;
@@ -17,14 +16,13 @@ final class ExecuteAction
     public int $rangeTo;
     public DateTimeInterface $creationTime;
 
-    public function __construct(int $locationId, string $locationChecksum, string $action, int $rangeFrom, int $rangeTo, string $phpSessionId)
+    public function __construct(int $locationId, string $locationChecksum, string $action, int $rangeFrom, int $rangeTo)
     {
         $this->locationId = $locationId;
         $this->locationChecksum = $locationChecksum;
         $this->action = $action;
         $this->rangeFrom = $rangeFrom;
         $this->rangeTo = $rangeTo;
-        $this->phpSessionId = $phpSessionId;
         $this->creationTime = new DateTimeImmutable();
     }
 }

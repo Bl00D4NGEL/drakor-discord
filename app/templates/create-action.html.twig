@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Start worker action{% endblock %}
+
+{% block content %}
+    <form action="{{ path('app_generateaction__invoke') }}" method="post">
+    <select name="location">
+        {% for location in locations %}
+            <option value="{{ location.id }}">[{{ location.skill|capitalize }}] {{ location.name }}</option>
+        {% endfor %}
+    </select>
+        <input type="submit" value="Go"/>
+    </form>
+{% endblock %}

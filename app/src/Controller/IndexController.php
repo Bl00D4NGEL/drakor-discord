@@ -36,7 +36,7 @@ final class IndexController extends AbstractController
         $results = array_map(function (LogEntry $logEntry) {
             return $this->resultAnalyser->parseResult($logEntry->getRawResult());
         }, $logEntries);
-        $filteredResults = array_filter($results, function (Result $result) {
+        $filteredResults = array_filter($results, static function (Result $result) {
             return $result->time !== '';
         });
         return $this->render('index.html.twig', [

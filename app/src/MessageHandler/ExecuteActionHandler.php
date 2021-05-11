@@ -85,7 +85,6 @@ final class ExecuteActionHandler implements MessageHandlerInterface
     #[Pure] protected function createWorldActionRequest(ExecuteAction $executeAction): WorldActionRequest
     {
         $worldActionRequest = new WorldActionRequest();
-        $worldActionRequest->authorization = $executeAction->phpSessionId;
         $worldActionRequest->action = $executeAction->action;
         $worldActionRequest->locationChecksum = $executeAction->locationChecksum;
         $worldActionRequest->locationId = $executeAction->locationId;
