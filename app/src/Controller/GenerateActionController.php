@@ -39,7 +39,7 @@ final class GenerateActionController
             ], Response::HTTP_BAD_REQUEST);
         }
 
-        $location = $filteredGuildNodes[0];
+        $location = array_values($filteredGuildNodes)[0];
 
         $command = new ExecuteAction(
             $location->id,
